@@ -11,11 +11,12 @@ import 'components/components.dart';
 import 'customs/customs.dart';
 
 void main() {
-  runApp(const WidgetbookApp());
+  runApp(WidgetbookApp());
 }
 
+// ignore: must_be_immutable
 class WidgetbookApp extends StatelessWidget {
-  const WidgetbookApp({super.key});
+  WidgetbookApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +156,61 @@ class WidgetbookApp extends StatelessWidget {
             ),
           ],
         ),
+        WidgetbookFolder(name: 'Single Child layout widgets', children: [
+          WidgetbookComponent(
+            name: 'Mountain',
+            useCases: [
+              WidgetbookUseCase(
+                name: 'With Hint Text',
+                builder: (context) => CustomTextField(
+                  controller: TextEditingController(),
+                  hintText: 'Enter your text here',
+                ),
+              ),
+              WidgetbookUseCase(
+                  name: 'titleSection', builder: (context) => titleSection),
+            ],
+          ),
+        ]),
       ],
     );
   }
+
+  Widget titleSection = Container(
+    padding: const EdgeInsets.all(32),
+    child: Row(
+      children: [
+        Expanded(
+          /*1*/
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /*2*/
+              Container(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: const Text(
+                  'Oeschinen Lake Campground',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Text(
+                'Kandersteg, Switzerland',
+                style: TextStyle(
+                  color: Colors.grey[500],
+                ),
+              ),
+            ],
+          ),
+        ),
+        /*3*/
+        Icon(
+          Icons.star,
+          color: Colors.red[500],
+        ),
+        const Text('41'),
+      ],
+    ),
+  );
 }
