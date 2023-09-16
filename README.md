@@ -1,4 +1,4 @@
-# flutter-storybook
+# flutter-catalog
 A catalog of ui components with with flutter
 
 #### Widgetbook
