@@ -5,6 +5,7 @@
 /// [Ref link]: https://docs.widgetbook.io/getting-started/complete-example
 import 'package:flutter/material.dart';
 import 'package:flutter_storybook/pages/pages.dart';
+import 'package:flutter_storybook/pages/responsive_page.dart';
 import 'package:widgetbook/widgetbook.dart' hide AlignmentAddon;
 
 import 'components/components.dart';
@@ -35,6 +36,10 @@ class WidgetbookApp extends StatelessWidget {
         ),
       ],
       directories: [
+        WidgetbookUseCase(
+          name: 'Responsive Design',
+          builder: (context) => const ResponsivePage(),
+        ),
         WidgetbookComponent(
           name: 'HomePage',
           useCases: [
