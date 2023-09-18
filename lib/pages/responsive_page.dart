@@ -8,15 +8,17 @@ class ResponsivePage extends StatelessWidget {
     final currentWidth = MediaQuery.of(context).size.width;
     final currentHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: currentWidth < 600 ? Colors.purple : Colors.green,
+      backgroundColor: currentWidth < 600 ? Colors.red : Colors.green,
       body: SafeArea(
-          child: Center(
-              child: Column(
-        children: [
-          Text(currentWidth.toString()),
-          Text(currentHeight.toString()),
-        ],
-      ))),
+        child: Center(
+          child: Column(
+            children: [
+              Text(currentWidth.toString()),
+              Text(currentHeight.toString()),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
