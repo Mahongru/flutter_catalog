@@ -6,10 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_storybook/pages/pages.dart';
 import 'package:flutter_storybook/pages/responsive_page.dart';
-import 'package:widgetbook/widgetbook.dart' hide AlignmentAddon;
-
-import 'components/components.dart';
-import 'customs/customs.dart';
+import 'package:widgetbook/widgetbook.dart';
 
 void main() {
   runApp(WidgetbookApp());
@@ -94,89 +91,6 @@ class WidgetbookApp extends StatelessWidget {
             ),
           ],
         ),
-        WidgetbookFolder(
-          name: 'Widgets',
-          children: [
-            WidgetbookComponent(
-              name: 'CustomContainer',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Default Style',
-                  builder: (context) => greenContainerUseCase(context),
-                ),
-              ],
-            ),
-            WidgetbookComponent(
-              name: 'CustomCard',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Default Style',
-                  builder: (context) => const CustomCard(
-                    child: Text('This is a custom card'),
-                  ),
-                ),
-                WidgetbookUseCase(
-                  name: 'With Custom Background Color',
-                  builder: (context) => CustomCard(
-                    backgroundColor: Colors.green.shade100,
-                    child: const Text(
-                      'This is a custom card with a custom background color',
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            // CustomTextField component use-cases
-            WidgetbookComponent(
-              name: 'CustomTextField',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Default Style',
-                  builder: (context) => CustomTextField(
-                    controller: TextEditingController(),
-                  ),
-                ),
-                WidgetbookUseCase(
-                  name: 'With Hint Text',
-                  builder: (context) => CustomTextField(
-                    controller: TextEditingController(),
-                    hintText: 'Enter your text here',
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-        WidgetbookFolder(
-          name: 'knobs',
-          children: [
-            WidgetbookComponent(
-              name: 'RangeSlider',
-              useCases: [
-                WidgetbookUseCase(
-                  name: 'Default',
-                  builder: (context) => rangeSlider(context),
-                ),
-              ],
-            ),
-          ],
-        ),
-        WidgetbookFolder(name: 'Single Child layout widgets', children: [
-          WidgetbookComponent(
-            name: 'Mountain',
-            useCases: [
-              WidgetbookUseCase(
-                name: 'With Hint Text',
-                builder: (context) => CustomTextField(
-                  controller: TextEditingController(),
-                  hintText: 'Enter your text here',
-                ),
-              ),
-              WidgetbookUseCase(
-                  name: 'titleSection', builder: (context) => titleSection),
-            ],
-          ),
-        ]),
       ],
     );
   }
